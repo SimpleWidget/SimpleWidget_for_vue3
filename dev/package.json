@@ -1,0 +1,10 @@
+{
+  "name": "dev",
+  "scripts": {
+    "start": "vite",
+    "build": "rimraf dist && vue-tsc --noEmit && vite build"
+  },
+  "devDependencies": {
+    "vconsole": "0.0.1"
+  }
+}
