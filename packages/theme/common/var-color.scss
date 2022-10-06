@@ -1,0 +1,90 @@
+// BaseColor
+$default: #f0f0f0;
+$primary: #2d5af1;
+$success: #52b35e;
+$warning: #fcc202;
+$danger: #ff0200;
+$info: #909399;
+
+// LightColor
+$lightDefault: lighten($default, 3%);
+$lightPrimary: lighten($primary, 37%);
+$lightSuccess: lighten($success, 42%);
+$lightWarning: lighten($warning, 42%);
+$lightDanger: lighten($danger, 42%);
+$lightInfo: lighten($info, 42%);
+
+// FontColor
+$fontDefault: #333;
+$fontPrimary: #fff;
+$fontSuccess: #333;
+$fontWarning: #333;
+$fontDanger: #333;
+$fontInfo: #333;
+
+// 不同类型的颜色状态
+$allTypeColorList: (
+  ( // 类名拼接
+    name: 'default',
+    // 默认背景色
+    default: $default,
+    // 简约状态背景色
+    light: $lightDefault,
+    // 默认字体颜色
+    defaultTextColor: #333,
+    // 简约的字体颜色
+    lightTextColor: #333,
+    // hover 状态背景色
+    defaultHover: darken($default, 3%),
+    // Active 状态背景色
+    defaultActive: darken($default, 10%),
+    // 简约的 hover 状态背景色
+    lightHover: darken($lightDefault, 3%),
+    // 简约的 Active 状态背景色
+    lightActive: darken($lightDefault, 9%)),
+  (name: 'primary',
+    default: $primary,
+    light: $lightPrimary,
+    defaultTextColor: #fff,
+    lightTextColor: #2d5af1,
+    defaultHover: lighten($primary, 10%),
+    defaultActive: darken($primary, 10%),
+    lightHover: lighten($lightPrimary, 3%),
+    lightActive: darken($lightPrimary, 3%)),
+  (name: 'success',
+    default: $success,
+    light: $lightSuccess,
+    defaultTextColor: #fff,
+    lightTextColor: #52b35e,
+    defaultHover: lighten($success, 10%),
+    defaultActive: darken($success, 10%),
+    lightHover: lighten($lightSuccess, 3%),
+    lightActive: darken($lightSuccess, 3%)),
+  (name: 'danger',
+    default: $danger,
+    light: $lightDanger,
+    defaultTextColor: #fff,
+    lightTextColor: #ff0200,
+    defaultHover: lighten($danger, 17%),
+    defaultActive: darken($danger, 10%),
+    lightHover: lighten($lightDanger, 3%),
+    lightActive: darken($lightDanger, 3%)),
+  (name: 'warning',
+    default: $warning,
+    light: $lightWarning,
+    defaultTextColor: #fff,
+    lightTextColor: #fcc202,
+    defaultHover: lighten($warning, 14%),
+    defaultActive: darken($warning, 10%),
+    lightHover: lighten($lightWarning, 3%),
+    lightActive: darken($lightWarning, 3%)),
+  (name: 'info',
+    default: $info,
+    light: $lightInfo,
+    defaultTextColor: #fff,
+    lightTextColor: #fcc202,
+    defaultHover: lighten($info, 14%),
+    defaultActive: darken($info, 10%),
+    lightHover: lighten($lightInfo, 3%),
+    lightActive: darken($lightInfo, 3%))
+);
