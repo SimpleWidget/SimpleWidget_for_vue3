@@ -2,8 +2,8 @@
  * @Author: Coan
  * @Date: 2022-10-07 16:20:07
  * @LastEditors: Coan
- * @LastEditTime: 2022-10-07 16:20:13
- * @FilePath: /SimpleWidget_for_vue3/packages/base/button/index.md
+ * @LastEditTime: 2022-10-07 19:49:04
+ * @FilePath: /SimpleWidget_for_vue3/packages/base/button/README.md
  * @Description:
 -->
 # Button 按钮
@@ -16,39 +16,39 @@
 ```html
 <template>
 	<div style="margin-bottom:10px">
-		<el-button>默认按钮</el-button>
-		<el-button type="primary">主要按钮</el-button>
-		<el-button type="success">成功按钮</el-button>
-		<el-button type="info">信息按钮</el-button>
-		<el-button type="warning">警告按钮</el-button>
-		<el-button type="danger">危险按钮</el-button>
+		<sw-button>默认按钮</sw-button>
+		<sw-button type="primary">主要按钮</sw-button>
+		<sw-button type="success">成功按钮</sw-button>
+		<sw-button type="info">信息按钮</sw-button>
+		<sw-button type="warning">警告按钮</sw-button>
+		<sw-button type="danger">危险按钮</sw-button>
 	</div>
 
     <div style="margin-bottom:10px">
-		<el-button>朴素按钮</el-button>
-		<el-button type="primary" plain>主要按钮</el-button>
-		<el-button type="success" plain>成功按钮</el-button>
-		<el-button type="info" plain>信息按钮</el-button>
-		<el-button type="warning" plain>警告按钮</el-button>
-		<el-button type="danger" plain>危险按钮</el-button>
+		<sw-button>朴素按钮</sw-button>
+		<sw-button type="primary" plain>主要按钮</sw-button>
+		<sw-button type="success" plain>成功按钮</sw-button>
+		<sw-button type="info" plain>信息按钮</sw-button>
+		<sw-button type="warning" plain>警告按钮</sw-button>
+		<sw-button type="danger" plain>危险按钮</sw-button>
 	</div>
 
     <div style="margin-bottom:10px">
-		<el-button round>圆角按钮</el-button>
-		<el-button type="primary" round size="small">主要按钮</el-button>
-		<el-button type="success" round size="small">成功按钮</el-button>
-		<el-button type="info" round size="small">信息按钮</el-button>
-		<el-button type="warning" round size="small">警告按钮</el-button>
-		<el-button type="danger" round size="small">危险按钮</el-button>
+		<sw-button round>圆角按钮</sw-button>
+		<sw-button type="primary" round size="small">主要按钮</sw-button>
+		<sw-button type="success" round size="small">成功按钮</sw-button>
+		<sw-button type="info" round size="small">信息按钮</sw-button>
+		<sw-button type="warning" round size="small">警告按钮</sw-button>
+		<sw-button type="danger" round size="small">危险按钮</sw-button>
 	</div>
 
     <div>
-		<el-button icon="el-icon-search" circle></el-button>
-        <el-button type="primary" icon="el-icon-edit" circle></el-button>
-        <el-button type="success" icon="el-icon-check" circle></el-button>
-        <el-button type="info" icon="el-icon-message" circle></el-button>
-        <el-button type="warning" icon="el-icon-star-off" circle></el-button>
-        <el-button type="danger" icon="el-icon-delete" circle></el-button>
+		<sw-button icon="sw-icon-search" circle></sw-button>
+        <sw-button type="primary" icon="sw-icon-edit" circle></sw-button>
+        <sw-button type="success" icon="sw-icon-check" circle></sw-button>
+        <sw-button type="info" icon="sw-icon-message" circle></sw-button>
+        <sw-button type="warning" icon="sw-icon-star-off" circle></sw-button>
+        <sw-button type="danger" icon="sw-icon-delete" circle></sw-button>
     </div>
 </template>
 ```
@@ -64,21 +64,21 @@
 ```html
 <template>
 	<div style="margin-bottom:10px">
-		<el-button disabled>默认按钮</el-button>
-        <el-button type="primary" disabled>主要按钮</el-button>
-        <el-button type="success" disabled>成功按钮</el-button>
-        <el-button type="info" disabled>信息按钮</el-button>
-        <el-button type="warning" disabled>警告按钮</el-button>
-        <el-button type="danger" disabled>危险按钮</el-button>
+		<sw-button disabled>默认按钮</sw-button>
+        <sw-button type="primary" disabled>主要按钮</sw-button>
+        <sw-button type="success" disabled>成功按钮</sw-button>
+        <sw-button type="info" disabled>信息按钮</sw-button>
+        <sw-button type="warning" disabled>警告按钮</sw-button>
+        <sw-button type="danger" disabled>危险按钮</sw-button>
 	</div>
 
     <div style="margin-bottom:10px">
-		<el-button plain disabled>朴素按钮</el-button>
-        <el-button type="primary" plain disabled>主要按钮</el-button>
-        <el-button type="success" plain disabled>成功按钮</el-button>
-        <el-button type="info" plain disabled>信息按钮</el-button>
-        <el-button type="warning" plain disabled>警告按钮</el-button>
-        <el-button type="danger" plain disabled>危险按钮</el-button>
+		<sw-button plain disabled>朴素按钮</sw-button>
+        <sw-button type="primary" plain disabled>主要按钮</sw-button>
+        <sw-button type="success" plain disabled>成功按钮</sw-button>
+        <sw-button type="info" plain disabled>信息按钮</sw-button>
+        <sw-button type="warning" plain disabled>警告按钮</sw-button>
+        <sw-button type="danger" plain disabled>危险按钮</sw-button>
 	</div>
 
 </template>
@@ -95,7 +95,7 @@
 ```html
 <template>
 	<div style="margin-bottom:10px">
-	  <el-button type="primary" :loading="true">加载中</el-button>
+	  <sw-button type="primary" :loading="true">加载中</sw-button>
 	</div>
 </template>
 ```
@@ -110,17 +110,17 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 ```html
 <template>
 	<div style="margin-bottom:10px">
-		<el-button>默认按钮</el-button>
-		<el-button size="medium">中等按钮</el-button>
-		<el-button size="small">小型按钮</el-button>
-		<el-button size="mini">超小按钮</el-button>
+		<sw-button>默认按钮</sw-button>
+		<sw-button size="medium">中等按钮</sw-button>
+		<sw-button size="small">小型按钮</sw-button>
+		<sw-button size="mini">超小按钮</sw-button>
 	</div>
 
 	<div>
-		<el-button>默认按钮</el-button>
-		<el-button size="medium" round>中等按钮</el-button>
-		<el-button size="small" round>小型按钮</el-button>
-		<el-button size="mini" round>超小按钮</el-button>
+		<sw-button>默认按钮</sw-button>
+		<sw-button size="medium" round>中等按钮</sw-button>
+		<sw-button size="small" round>小型按钮</sw-button>
+		<sw-button size="mini" round>超小按钮</sw-button>
 	</div>
 </template>
 ```
@@ -136,10 +136,10 @@ button、submit、reset通过设置native-type属性来配置它们。
 ```html
 <template>
     <div>
-		<el-button>默认button类型</el-button>
-		<el-button native-type="button">显式设置button类型</el-button>
-		<el-button native-type="submit">submit类型</el-button>
-		<el-button native-type="reset">reset类型</el-button>
+		<sw-button>默认button类型</sw-button>
+		<sw-button native-type="button">显式设置button类型</sw-button>
+		<sw-button native-type="submit">submit类型</sw-button>
+		<sw-button native-type="reset">reset类型</sw-button>
 	</div>
 </template>
 ```
