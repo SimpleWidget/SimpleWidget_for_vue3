@@ -2,7 +2,7 @@
  * @Author: Coan
  * @Date: 2022-10-05 16:27:23
  * @LastEditors: Coan
- * @LastEditTime: 2022-10-07 01:48:10
+ * @LastEditTime: 2022-10-07 17:03:50
  * @FilePath: /SimpleWidget_for_vue3/packages/base/button/button.vue
  * @Description:
 -->
@@ -58,6 +58,6 @@ const classes = useClasses({
 });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../../theme/button.scss';
 </style>

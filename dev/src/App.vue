@@ -2,7 +2,7 @@
  * @Author: Coan
  * @Date: 2022-09-30 13:40:02
  * @LastEditors: Coan
- * @LastEditTime: 2022-10-07 02:30:30
+ * @LastEditTime: 2022-10-07 19:38:19
  * @FilePath: /SimpleWidget_for_vue3/dev/src/App.vue
  * @Description:
 -->
@@ -21,6 +21,18 @@
   <SButton class="optstyle" type="danger" size="mini">SButton</SButton>
   <SButton class="optstyle" type="info">SButton</SButton>
   <SButton class="optstyle" type="text" @click="dd" disabled>SButton</SButton>
+  <hr />
+  <div
+    style="
+      color: #606266;
+      margin: 0 20px;
+      font-size: 1.5em;
+      vertical-align: middle;
+    "
+  >
+    <SIcon name="edit" />edit <i class="sw-icon-share"></i>share
+    <i class="sw-icon-delete"></i>delete
+  </div>
 </template>
 
 <script lang="ts" setup>
