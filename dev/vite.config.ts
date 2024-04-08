@@ -1,8 +1,8 @@
 /*
- * @Author: Coan
+ * @Author: Klein
  * @Date: 2022-10-05 16:03:13
- * @LastEditors: Coan
- * @LastEditTime: 2022-10-05 16:13:40
+ * @LastEditors: Klein
+ * @LastEditTime: 2024-04-09 00:22:32
  * @FilePath: /SimpleWidget_for_vue3/dev/vite.config.ts
  * @Description:
  */
