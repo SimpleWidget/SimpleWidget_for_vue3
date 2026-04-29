@@ -108,6 +108,11 @@
       <SEmpty content="加载中..." />
     </SSpace>
 
+    <h3>Pagination</h3>
+    <SSpace direction="vertical">
+      <SPagination :total="100" :current="1" :page-size="10" />
+    </SSpace>
+
     <h3>Form Components</h3>
     <SSpace direction="vertical">
       <SInput v-model="inputValue" placeholder="输入框" />
