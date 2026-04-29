@@ -159,6 +159,11 @@
       <SUpload />
     </SSpace>
 
+    <h3>CountDown</h3>
+    <SSpace>
+      <SCountDown :time="10000" format="HH:mm:ss" />
+    </SSpace>
+
     <h3>Form</h3>
     <SForm>
       <SFormItem label="用户名">

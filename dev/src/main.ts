@@ -49,6 +49,7 @@ import { SFormItem } from "../../packages/base/form-item/index";
 import { SStepsItem } from "../../packages/base/steps-item/index";
 import { SDatePicker } from "../../packages/base/date-picker/index";
 import { SUpload } from "../../packages/base/upload/index";
+import { SCountDown } from "../../packages/base/count-down/index";
 
 const app = createApp(App);
 
@@ -99,6 +100,7 @@ app.use(SForm as any);
 app.use(SFormItem as any);
 app.use(SDatePicker as any);
 app.use(SUpload as any);
+app.use(SCountDown as any);
 (app as any).showMessage = showMessage;
 (app as any).showNotification = showNotification;
 (app as any).showConfirmBox = showConfirmBox;
