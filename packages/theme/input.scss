@@ -1,0 +1,61 @@
+@import './common/base.scss';
+
+$inputSize: (
+  (name: 'large',
+    height: $large,
+    fontSize: 15px,
+    padding: 10px 15px),
+  (name: 'medium',
+    height: $middle,
+    fontSize: 14px,
+    padding: 8px 12px),
+  (name: 'small',
+    height: $small,
+    fontSize: 13px,
+    padding: 6px 10px),
+  (name: 'mini',
+    height: $mini,
+    fontSize: 12px,
+    padding: 4px 8px)
+);
+
+.sw-input {
+  box-sizing: border-box;
+  border: 1px solid $default;
+  border-radius: $basicRadiusSize;
+  outline: none;
+  font-size: 14px;
+  height: $middle;
+  padding: 8px 12px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background: #fff;
+  color: #333;
+
+  &::placeholder {
+    color: #999;
+  }
+
+  &:focus {
+    border-color: $primary;
+    box-shadow: 0 0 0 2px rgba($primary, 0.1);
+  }
+
+  &:hover:not(:focus):not(:disabled) {
+    border-color: darken($default, 10%);
+  }
+
+  &:disabled {
+    background: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  @each $item in $inputSize {
+    $name: map-get($item, name);
+    &.sw-input-#{$name} {
+      height: map-get($item, height);
+      font-size: map-get($item, fontSize);
+      padding: map-get($item, padding);
+    }
+  }
+}

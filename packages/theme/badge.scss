@@ -1,0 +1,43 @@
+@import './common/base.scss';
+
+.sw-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+
+  &__dot {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $danger;
+  }
+
+  &__content {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    min-width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    border-radius: 9px;
+    background: $danger;
+    color: #fff;
+    font-size: 11px;
+    padding: 0 5px;
+  }
+
+  @each $item in $allTypeColorList {
+    $name: map-get($item, name);
+    &.sw-badge-#{$name} {
+      .sw-badge__dot,
+      .sw-badge__content {
+        background: map-get($item, default);
+      }
+    }
+  }
+}

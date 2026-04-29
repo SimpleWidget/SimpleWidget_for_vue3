@@ -1,0 +1,48 @@
+@import './common/base.scss';
+
+$tagSize: (
+  (name: 'large',
+    height: $large,
+    fontSize: 14px,
+    padding: 8px 16px),
+  (name: 'medium',
+    height: $middle,
+    fontSize: 13px,
+    padding: 6px 12px),
+  (name: 'small',
+    height: $small,
+    fontSize: 12px,
+    padding: 4px 8px),
+  (name: 'mini',
+    height: $mini,
+    fontSize: 11px,
+    padding: 2px 6px)
+);
+
+.sw-tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: $basicRadiusSize;
+  font-size: 13px;
+  height: $middle;
+  padding: 6px 12px;
+  background: $lightDefault;
+  color: $fontDefault;
+
+  @each $item in $tagSize {
+    $name: map-get($item, name);
+    &.sw-tag-#{$name} {
+      height: map-get($item, height);
+      font-size: map-get($item, fontSize);
+      padding: map-get($item, padding);
+    }
+  }
+
+  @each $item in $allTypeColorList {
+    $name: map-get($item, name);
+    &.sw-tag-#{$name} {
+      background: map-get($item, default);
+      color: map-get($item, defaultTextColor);
+    }
+  }
+}
