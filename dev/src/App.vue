@@ -102,6 +102,12 @@
       <SProgress :percentage="50" stripe :height="10" />
     </SSpace>
 
+    <h3>Empty</h3>
+    <SSpace direction="vertical">
+      <SEmpty content="暂无数据" />
+      <SEmpty content="加载中..." />
+    </SSpace>
+
     <h3>Form Components</h3>
     <SSpace direction="vertical">
       <SInput v-model="inputValue" placeholder="输入框" />

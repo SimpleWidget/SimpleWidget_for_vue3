@@ -1,0 +1,23 @@
+.sw-empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+
+  &__wrapper {
+    margin-bottom: 16px;
+    color: #d0d0d0;
+  }
+
+  &__content {
+    font-size: 14px;
+    color: #999;
+    margin: 0;
+  }
+
+  &__footer {
+    margin-top: 16px;
+  }
+}

@@ -35,6 +35,7 @@ import { SCard } from "../../packages/base/card/index";
 import { SImage } from "../../packages/base/image/index";
 import { SAvatar } from "../../packages/base/avatar/index";
 import { SProgress } from "../../packages/base/progress/index";
+import { SEmpty } from "../../packages/base/empty/index";
 
 const app = createApp(App);
 
@@ -71,6 +72,7 @@ app.use(SCard as any);
 app.use(SImage as any);
 app.use(SAvatar as any);
 app.use(SProgress as any);
+app.use(SEmpty as any);
 (app as any).showMessage = showMessage;
 (app as any).showNotification = showNotification;
 (app as any).showConfirmBox = showConfirmBox;
