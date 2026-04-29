@@ -1,0 +1,67 @@
+@import './common/base.scss';
+
+.sw-radio {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  margin-right: 16px;
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  &__box {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    border: 1px solid $default;
+    border-radius: 50%;
+    background: #fff;
+    transition: all 0.2s;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fff;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 0.2s;
+    }
+  }
+
+  &__text {
+    margin-left: 8px;
+    font-size: 14px;
+    color: $fontDefault;
+  }
+
+  &--checked {
+    .sw-radio__box {
+      border-color: $primary;
+
+      &::after {
+        background: $primary;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &--border {
+    .sw-radio__box {
+      border-width: 2px;
+    }
+  }
+}

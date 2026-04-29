@@ -1,0 +1,73 @@
+@import './common/base.scss';
+
+.sw-checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  margin-right: 16px;
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  &__box {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    border: 1px solid $default;
+    border-radius: 2px;
+    background: #fff;
+    transition: all 0.2s;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 5px;
+      width: 4px;
+      height: 8px;
+      border: 2px solid #fff;
+      border-top: 0;
+      border-left: 0;
+      transform: rotate(45deg) scale(0);
+      transition: transform 0.2s;
+    }
+  }
+
+  &__text {
+    margin-left: 8px;
+    font-size: 14px;
+    color: $fontDefault;
+  }
+
+  &--checked {
+    .sw-checkbox__box {
+      background: $primary;
+      border-color: $primary;
+
+      &::after {
+        transform: rotate(45deg) scale(1);
+      }
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    .sw-checkbox__box,
+    .sw-checkbox__text {
+      cursor: not-allowed;
+    }
+  }
+
+  &--border {
+    .sw-checkbox__box {
+      border-width: 2px;
+    }
+  }
+}

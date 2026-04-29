@@ -10,6 +10,12 @@ import { STag } from "../../packages/base/tag/index";
 import { STooltip } from "../../packages/base/tooltip/index";
 import { SRipple } from "../../packages/base/ripple/index";
 import { SLoading } from "../../packages/base/loading/index";
+import { SCheckbox } from "../../packages/base/checkbox/index";
+import { SCheckboxGroup } from "../../packages/base/checkbox-group/index";
+import { SRadio } from "../../packages/base/radio/index";
+import { SRadioGroup } from "../../packages/base/radio-group/index";
+import { SSwitch } from "../../packages/base/switch/index";
+import { STextarea } from "../../packages/base/textarea/index";
 
 const app = createApp(App);
 
@@ -21,5 +27,11 @@ app.use(STag as any);
 app.use(STooltip as any);
 app.use(SRipple as any);
 app.use(SLoading as any);
+app.use(SCheckbox as any);
+app.use(SCheckboxGroup as any);
+app.use(SRadio as any);
+app.use(SRadioGroup as any);
+app.use(SSwitch as any);
+app.use(STextarea as any);
 
 app.mount("#dev");

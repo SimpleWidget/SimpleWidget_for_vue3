@@ -13,6 +13,27 @@
     <SInput v-model="inputValue" placeholder="请输入" size="middle" />
     <SInput placeholder="禁用" disabled />
 
+    <h3>Textarea</h3>
+    <STextarea v-model="textareaValue" placeholder="请输入" :rows="3" :show-count="true" :maxlength="100" />
+
+    <h3>Checkbox</h3>
+    <SCheckbox v-model="checked">同意协议</SCheckbox>
+    <SCheckboxGroup v-model="checkboxGroup">
+      <SCheckbox label="苹果">苹果</SCheckbox>
+      <SCheckbox label="香蕉">香蕉</SCheckbox>
+      <SCheckbox label="橙子">橙子</SCheckbox>
+    </SCheckboxGroup>
+
+    <h3>Radio</h3>
+    <SRadioGroup v-model="radioValue">
+      <SRadio label="男">男</SRadio>
+      <SRadio label="女">女</SRadio>
+    </SRadioGroup>
+
+    <h3>Switch</h3>
+    <SSwitch v-model="switchValue" />
+    <SSwitch v-model="switchValue2" active-color="#52b35e" />
+
     <h3>Badge</h3>
     <SBadge content="5">
       <SButton>消息</SButton>
@@ -58,7 +79,13 @@
 import { ref } from 'vue';
 
 const inputValue = ref('');
+const textareaValue = ref('');
 const loadingVisible = ref(false);
+const checked = ref(false);
+const checkboxGroup = ref(['苹果']);
+const radioValue = ref('男');
+const switchValue = ref(false);
+const switchValue2 = ref(true);
 </script>
 
 <style lang="scss" scoped>
@@ -67,6 +94,7 @@ const loadingVisible = ref(false);
 }
 .optstyle {
   margin-right: 10px;
+  margin-bottom: 8px;
 }
 h3 {
   margin: 16px 0 8px;
