@@ -125,6 +125,13 @@
       <div>内容 3</div>
     </STabs>
 
+    <h3>Breadcrumb</h3>
+    <SBreadcrumb>
+      <SBreadcrumbItem to="/">首页</SBreadcrumbItem>
+      <SBreadcrumbItem to="/category">分类</SBreadcrumbItem>
+      <SBreadcrumbItem>详情</SBreadcrumbItem>
+    </SBreadcrumb>
+
     <h3>Dropdown</h3>
     <SDropdown>
       <template #trigger>
