@@ -80,6 +80,12 @@
       </SCard>
     </SSpace>
 
+    <h3>Image</h3>
+    <SSpace>
+      <SImage src="https://vuejs.org/images/logo.png" alt="Vue Logo" :width="100" :height="100" />
+      <SImage src="https://invalid-url.test" alt="加载失败" :width="100" :height="100" fit="contain" />
+    </SSpace>
+
     <h3>Form Components</h3>
     <SSpace direction="vertical">
       <SInput v-model="inputValue" placeholder="输入框" />

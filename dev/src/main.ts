@@ -32,6 +32,7 @@ import { SNotification, showNotification } from "../../packages/base/notificatio
 import { SConfirmBox, showConfirmBox } from "../../packages/base/confirm-box/index";
 import { STable } from "../../packages/base/table/index";
 import { SCard } from "../../packages/base/card/index";
+import { SImage } from "../../packages/base/image/index";
 
 const app = createApp(App);
 
@@ -65,6 +66,7 @@ app.use(SNotification as any);
 app.use(SConfirmBox as any);
 app.use(STable as any);
 app.use(SCard as any);
+app.use(SImage as any);
 (app as any).showMessage = showMessage;
 (app as any).showNotification = showNotification;
 (app as any).showConfirmBox = showConfirmBox;
