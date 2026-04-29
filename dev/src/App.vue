@@ -125,6 +125,16 @@
       <div>内容 3</div>
     </STabs>
 
+    <h3>Dropdown</h3>
+    <SDropdown>
+      <template #trigger>
+        <SButton>下拉菜单</SButton>
+      </template>
+      <SDropdownItem>选项 1</SDropdownItem>
+      <SDropdownItem>选项 2</SDropdownItem>
+      <SDropdownItem disabled>禁用选项</SDropdownItem>
+    </SDropdown>
+
     <h3>Form Components</h3>
     <SSpace direction="vertical">
       <SInput v-model="inputValue" placeholder="输入框" />

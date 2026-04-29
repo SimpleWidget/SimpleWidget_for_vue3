@@ -38,6 +38,8 @@ import { SProgress } from "../../packages/base/progress/index";
 import { SEmpty } from "../../packages/base/empty/index";
 import { SPagination } from "../../packages/base/pagination/index";
 import { STabs } from "../../packages/base/tabs/index";
+import { SDropdown } from "../../packages/base/dropdown/index";
+import { SDropdownItem } from "../../packages/base/dropdown-item/index";
 import { STabsItem } from "../../packages/base/tabs-item/index";
 
 const app = createApp(App);
@@ -79,6 +81,8 @@ app.use(SEmpty as any);
 app.use(SPagination as any);
 app.use(STabs as any);
 app.use(STabsItem as any);
+app.use(SDropdown as any);
+app.use(SDropdownItem as any);
 (app as any).showMessage = showMessage;
 (app as any).showNotification = showNotification;
 (app as any).showConfirmBox = showConfirmBox;
