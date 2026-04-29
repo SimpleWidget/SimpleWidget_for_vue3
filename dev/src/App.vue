@@ -154,6 +154,11 @@
       <SDatePicker />
     </SSpace>
 
+    <h3>Upload</h3>
+    <SSpace>
+      <SUpload />
+    </SSpace>
+
     <h3>Form</h3>
     <SForm>
       <SFormItem label="用户名">
