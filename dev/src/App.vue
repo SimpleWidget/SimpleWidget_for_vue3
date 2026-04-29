@@ -113,6 +113,18 @@
       <SPagination :total="100" :current="1" :page-size="10" />
     </SSpace>
 
+    <h3>Tabs</h3>
+    <STabs>
+      <template #header>
+        <STabsItem label="标签1" :name="1" />
+        <STabsItem label="标签2" :name="2" />
+        <STabsItem label="标签3" :name="3" />
+      </template>
+      <div>内容 1</div>
+      <div>内容 2</div>
+      <div>内容 3</div>
+    </STabs>
+
     <h3>Form Components</h3>
     <SSpace direction="vertical">
       <SInput v-model="inputValue" placeholder="输入框" />
