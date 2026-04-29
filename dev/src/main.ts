@@ -31,6 +31,7 @@ import { SMessage, showMessage } from "../../packages/base/message/index";
 import { SNotification, showNotification } from "../../packages/base/notification/index";
 import { SConfirmBox, showConfirmBox } from "../../packages/base/confirm-box/index";
 import { STable } from "../../packages/base/table/index";
+import { SCard } from "../../packages/base/card/index";
 
 const app = createApp(App);
 
@@ -63,6 +64,7 @@ app.use(SMessage as any);
 app.use(SNotification as any);
 app.use(SConfirmBox as any);
 app.use(STable as any);
+app.use(SCard as any);
 (app as any).showMessage = showMessage;
 (app as any).showNotification = showNotification;
 (app as any).showConfirmBox = showConfirmBox;

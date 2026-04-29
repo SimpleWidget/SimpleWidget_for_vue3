@@ -1,0 +1,59 @@
+.sw-card {
+  background: var(--card-background, #fff);
+  border: 1px solid var(--card-border-color, #eee);
+  border-radius: var(--card-border-radius, 4px);
+  transition: all 0.3s ease;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+  }
+
+  &__title {
+    font-size: 16px;
+    color: #333;
+    font-weight: normal;
+
+    &-bold {
+      font-weight: bold;
+    }
+  }
+
+  &__body {
+    padding: 16px;
+  }
+
+  &__close {
+    cursor: pointer;
+    opacity: 0.7;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &--round {
+    border-radius: 8px;
+  }
+
+  &--shadow:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &--shadow-always {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.2s ease-out;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}

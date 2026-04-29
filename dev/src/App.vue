@@ -67,6 +67,19 @@
     <h3>Table</h3>
     <STable :data="tableData" :columns="tableColumns" border zebra />
 
+    <h3>Card</h3>
+    <SSpace>
+      <SCard title="卡片标题" style="width: 300px">
+        <div>卡片内容区域</div>
+      </SCard>
+      <SCard title="圆角卡片" round style="width: 300px">
+        <div>圆角卡片内容</div>
+      </SCard>
+      <SCard title="带阴影" shadow="always" style="width: 300px">
+        <div>始终带阴影的卡片</div>
+      </SCard>
+    </SSpace>
+
     <h3>Form Components</h3>
     <SSpace direction="vertical">
       <SInput v-model="inputValue" placeholder="输入框" />
