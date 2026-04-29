@@ -59,6 +59,11 @@
       <SButton type="danger" @click="showNotification({ title: '错误', message: '操作失败', type: 'danger' })">错误通知</SButton>
     </SSpace>
 
+    <h3>ConfirmBox</h3>
+    <SSpace>
+      <SButton @click="showConfirmBox({ title: '确认删除', content: '确定要删除这条记录吗？', confirmText: '删除', cancelText: '取消' })">删除确认</SButton>
+    </SSpace>
+
     <h3>Form Components</h3>
     <SSpace direction="vertical">
       <SInput v-model="inputValue" placeholder="输入框" />
@@ -87,6 +92,9 @@ const showMessage = (options: any) => {
 };
 const showNotification = (options: any) => {
   (window as any).showNotification(options);
+};
+const showConfirmBox = (options: any) => {
+  (window as any).showConfirmBox(options);
 };
 </script>
 

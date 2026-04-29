@@ -29,6 +29,7 @@ import { SAlert } from "../../packages/base/alert/index";
 import { SDialog } from "../../packages/base/dialog/index";
 import { SMessage, showMessage } from "../../packages/base/message/index";
 import { SNotification, showNotification } from "../../packages/base/notification/index";
+import { SConfirmBox, showConfirmBox } from "../../packages/base/confirm-box/index";
 
 const app = createApp(App);
 
@@ -59,7 +60,9 @@ app.use(SAlert as any);
 app.use(SDialog as any);
 app.use(SMessage as any);
 app.use(SNotification as any);
+app.use(SConfirmBox as any);
 (app as any).showMessage = showMessage;
 (app as any).showNotification = showNotification;
+(app as any).showConfirmBox = showConfirmBox;
 
 app.mount("#dev");
