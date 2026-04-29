@@ -142,6 +142,13 @@
       <SDropdownItem disabled>禁用选项</SDropdownItem>
     </SDropdown>
 
+    <h3>Steps</h3>
+    <SSteps>
+      <SStepsItem title="步骤 1" description="选择商品" status="finish" />
+      <SStepsItem title="步骤 2" description="填写订单" status="active" />
+      <SStepsItem title="步骤 3" description="支付订单" status="wait" />
+    </SSteps>
+
     <h3>Form Components</h3>
     <SSpace direction="vertical">
       <SInput v-model="inputValue" placeholder="输入框" />

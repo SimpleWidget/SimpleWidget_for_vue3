@@ -42,6 +42,8 @@ import { SDropdown } from "../../packages/base/dropdown/index";
 import { SDropdownItem } from "../../packages/base/dropdown-item/index";
 import { SBreadcrumb, SBreadcrumbItem } from "../../packages/base/breadcrumb/index";
 import { STabsItem } from "../../packages/base/tabs-item/index";
+import { SSteps } from "../../packages/base/steps/index";
+import { SStepsItem } from "../../packages/base/steps-item/index";
 
 const app = createApp(App);
 
@@ -86,6 +88,8 @@ app.use(SDropdown as any);
 app.use(SDropdownItem as any);
 app.use(SBreadcrumb as any);
 app.use(SBreadcrumbItem as any);
+app.use(SSteps as any);
+app.use(SStepsItem as any);
 (app as any).showMessage = showMessage;
 (app as any).showNotification = showNotification;
 (app as any).showConfirmBox = showConfirmBox;
