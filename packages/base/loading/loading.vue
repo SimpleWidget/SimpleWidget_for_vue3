@@ -35,4 +35,15 @@ const styles = computed(() => {
     <div class="sw-loading__animation">
       <svg viewBox="0 0 50 50" class="sw-loading__spinner">
         <circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round">
-          <animate attributeName="stroke-dasharray" values="1,150;90
+          <animate attributeName="stroke-dasharray" values="1,150;90,150;90,150" dur="1.5s" repeatCount="indefinite" />
+          <animate attributeName="stroke-dashoffset" values="0;-35;-125" dur="1.5s" repeatCount="indefinite" />
+        </circle>
+      </svg>
+    </div>
+    <span v-if="text" class="sw-loading__text">{{ text }}</span>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+@import '../../theme/loading.scss';
+</style>
