@@ -16,6 +16,10 @@ import { SRadio } from "../../packages/base/radio/index";
 import { SRadioGroup } from "../../packages/base/radio-group/index";
 import { SSwitch } from "../../packages/base/switch/index";
 import { STextarea } from "../../packages/base/textarea/index";
+import { SSelect } from "../../packages/base/select/index";
+import { SOption } from "../../packages/base/option/index";
+import { SInputNumber } from "../../packages/base/input-number/index";
+import { SSlider } from "../../packages/base/slider/index";
 
 const app = createApp(App);
 
@@ -33,5 +37,9 @@ app.use(SRadio as any);
 app.use(SRadioGroup as any);
 app.use(SSwitch as any);
 app.use(STextarea as any);
+app.use(SSelect as any);
+app.use(SOption as any);
+app.use(SInputNumber as any);
+app.use(SSlider as any);
 
 app.mount("#dev");

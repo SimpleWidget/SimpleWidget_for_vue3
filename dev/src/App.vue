@@ -34,6 +34,21 @@
     <SSwitch v-model="switchValue" />
     <SSwitch v-model="switchValue2" active-color="#52b35e" />
 
+    <h3>InputNumber</h3>
+    <SInputNumber v-model="inputNumberValue" :min="0" :max="100" />
+    <SInputNumber v-model="inputNumberValue2" :step="10" size="large" />
+
+    <h3>Slider</h3>
+    <SSlider v-model="sliderValue" :min="0" :max="100" style="width: 200px" />
+    <SSlider v-model="sliderValue2" :show-input="true" :min="0" :max="100" style="width: 200px; margin-top: 20px" />
+
+    <h3>Select</h3>
+    <SSelect v-model="selectValue" placeholder="请选择">
+      <SOption value="apple" label="苹果" />
+      <SOption value="banana" label="香蕉" />
+      <SOption value="orange" label="橙子" />
+    </SSelect>
+
     <h3>Badge</h3>
     <SBadge content="5">
       <SButton>消息</SButton>
@@ -86,6 +101,11 @@ const checkboxGroup = ref(['苹果']);
 const radioValue = ref('男');
 const switchValue = ref(false);
 const switchValue2 = ref(true);
+const selectValue = ref('');
+const inputNumberValue = ref(0);
+const inputNumberValue2 = ref(50);
+const sliderValue = ref(30);
+const sliderValue2 = ref(50);
 </script>
 
 <style lang="scss" scoped>

@@ -1,0 +1,94 @@
+@import './common/base.scss';
+
+$inputNumberSize: (
+  (name: 'large',
+    height: $large,
+    fontSize: 15px),
+  (name: 'middle',
+    height: $middle,
+    fontSize: 14px),
+  (name: 'small',
+    height: $small,
+    fontSize: 13px),
+  (name: 'mini',
+    height: $mini,
+    fontSize: 12px)
+);
+
+.sw-input-number {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid $default;
+  border-radius: $basicRadiusSize;
+  overflow: hidden;
+  background: #fff;
+
+  &__input {
+    width: 60px;
+    height: 100%;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-size: 14px;
+    color: $fontDefault;
+    background: transparent;
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  &__decrease,
+  &__increase {
+    width: 30px;
+    height: 100%;
+    border: none;
+    background: $lightDefault;
+    cursor: pointer;
+    font-size: 16px;
+    color: $fontDefault;
+    transition: all 0.2s;
+
+    &:hover:not(:disabled) {
+      background: darken($lightDefault, 5%);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
+  &__decrease {
+    border-right: 1px solid $default;
+  }
+
+  &__increase {
+    border-left: 1px solid $default;
+  }
+
+  @each $item in $inputNumberSize {
+    $name: map-get($item, name);
+    &--#{$name} {
+      height: map-get($item, height);
+
+      .sw-input-number__decrease,
+      .sw-input-number__increase {
+        font-size: map-get($item, fontSize);
+      }
+    }
+  }
+
+  &--disabled {
+    background: #f5f5f5;
+    opacity: 0.6;
+
+    .sw-input-number__decrease,
+    .sw-input-number__increase {
+      cursor: not-allowed;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+@import './common/base.scss';
+
+.sw-select {
+  position: relative;
+  display: inline-block;
+  min-width: 120px;
+
+  &__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border: 1px solid $default;
+    border-radius: $basicRadiusSize;
+    background: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: border-color 0.3s;
+
+    &:hover {
+      border-color: darken($default, 10%);
+    }
+  }
+
+  &__value {
+    color: $fontDefault;
+  }
+
+  &__arrow {
+    margin-left: 8px;
+    font-size: 10px;
+    color: #999;
+    transition: transform 0.3s;
+
+    &--open {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 4px;
+    border: 1px solid $default;
+    border-radius: $basicRadiusSize;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  &--disabled {
+    .sw-select__trigger {
+      background: #f5f5f5;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  }
+}
