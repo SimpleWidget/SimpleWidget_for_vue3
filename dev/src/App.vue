@@ -64,6 +64,9 @@
       <SButton @click="showConfirmBox({ title: '确认删除', content: '确定要删除这条记录吗？', confirmText: '删除', cancelText: '取消' })">删除确认</SButton>
     </SSpace>
 
+    <h3>Table</h3>
+    <STable :data="tableData" :columns="tableColumns" border zebra />
+
     <h3>Form Components</h3>
     <SSpace direction="vertical">
       <SInput v-model="inputValue" placeholder="输入框" />
@@ -96,6 +99,18 @@ const showNotification = (options: any) => {
 const showConfirmBox = (options: any) => {
   (window as any).showConfirmBox(options);
 };
+
+const tableData = [
+  { name: '张三', age: 25, city: '北京' },
+  { name: '李四', age: 30, city: '上海' },
+  { name: '王五', age: 28, city: '广州' },
+];
+
+const tableColumns = [
+  { key: 'name', title: '姓名', width: 120 },
+  { key: 'age', title: '年龄', width: 100 },
+  { key: 'city', title: '城市', width: 150 },
+];
 </script>
 
 <style lang="scss" scoped>
