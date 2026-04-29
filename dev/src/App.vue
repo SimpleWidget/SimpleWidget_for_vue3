@@ -149,6 +149,16 @@
       <SStepsItem title="步骤 3" description="支付订单" status="wait" />
     </SSteps>
 
+    <h3>Form</h3>
+    <SForm>
+      <SFormItem label="用户名">
+        <SInput placeholder="请输入用户名" />
+      </SFormItem>
+      <SFormItem label="密码">
+        <SInput type="password" placeholder="请输入密码" />
+      </SFormItem>
+    </SForm>
+
     <h3>Form Components</h3>
     <SSpace direction="vertical">
       <SInput v-model="inputValue" placeholder="输入框" />
