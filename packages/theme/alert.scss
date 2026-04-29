@@ -1,0 +1,129 @@
+.sw-alert {
+  --alert-border-radius: 4px;
+
+  display: flex;
+  padding: 8px 10px;
+  margin: 0;
+  position: relative;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: var(--alert-border-radius);
+  color: var(--alert-color);
+  transition: 0.3s;
+  background-color: var(--alert-background);
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 1 1 auto;
+  }
+
+  &__title {
+    font-weight: bold;
+    margin-left: 10px;
+    font-size: var(--alert-title-size, 17px);
+    color: var(--alert-title-color);
+  }
+
+  &__sub-title {
+    display: block;
+    margin-left: 10px;
+    line-height: 24px;
+    font-size: var(--alert-font-size, 14px);
+  }
+
+  &--center .sw-alert__content {
+    justify-content: center;
+  }
+
+  &--fixed {
+    width: 100%;
+    position: fixed;
+  }
+
+  &__close {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    opacity: 0.6;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.2s ease-out;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  &__default {
+    --alert-color: #333;
+    --alert-background: #f0f0f0;
+  }
+
+  &__primary {
+    --alert-color: #fff;
+    --alert-background: #2d5af1;
+  }
+
+  &__success {
+    --alert-color: #fff;
+    --alert-background: #52b35e;
+  }
+
+  &__danger {
+    --alert-color: #fff;
+    --alert-background: #ff0200;
+  }
+
+  &__warning {
+    --alert-color: #fff;
+    --alert-background: #fcc202;
+  }
+
+  &__info {
+    --alert-color: #fbfbfd;
+    --alert-background: #1d1d1f;
+  }
+
+  &__default.sw-alert--simple {
+    --alert-color: #333;
+    --alert-background: #f8f8f8;
+  }
+
+  &__primary.sw-alert--simple {
+    --alert-color: #2d5af1;
+    --alert-background: #dee5fd;
+  }
+
+  &__success.sw-alert--simple {
+    --alert-color: #52b35e;
+    --alert-background: #e7f4e8;
+  }
+
+  &__danger.sw-alert--simple {
+    --alert-color: #ff0200;
+    --alert-background: #ffd7d6;
+  }
+
+  &__warning.sw-alert--simple {
+    --alert-color: #fcc202;
+    --alert-background: #fff5d6;
+  }
+
+  &__info.sw-alert--simple {
+    --alert-color: #1d1d1f;
+    --alert-background: #bdbdbd;
+  }
+
+  &--round {
+    --alert-border-radius: 25px;
+  }
+}

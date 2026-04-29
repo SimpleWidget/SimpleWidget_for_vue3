@@ -1,0 +1,110 @@
+.sw-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: var(--dialog-z-index, 2000);
+
+  &__mask {
+    position: absolute;
+    inset: 0;
+    opacity: var(--dialog-mask-opacity, 0.4);
+    background-color: var(--dialog-mask-background, #000);
+  }
+
+  &__wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 1999;
+    transition: 0.3s;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .sw-dialog__container {
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      border-radius: 6px;
+      margin: auto;
+      padding: var(--dialog-padding, 20px);
+      width: var(--dialog-width, 500px);
+
+      .sw-dialog__header {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        min-height: 56px;
+        justify-content: space-between;
+        border-bottom: 1px solid #eee;
+        padding: 5px 10px;
+        box-sizing: border-box;
+
+        &-center {
+          color: rgb(95, 99, 104);
+          font-size: 17px;
+        }
+
+        &-before,
+        &-after {
+          width: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      .sw-dialog__body {
+        box-sizing: border-box;
+        padding: 5px 15px;
+        text-align: left;
+        flex: 1;
+      }
+
+      .sw-dialog__footer {
+        padding: 10px 14px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+        border-top: 1px solid #eee;
+      }
+
+      &-trans-enter-active,
+      &-trans-leave-active {
+        transition: all 0.2s ease-out;
+      }
+
+      &-trans-enter-from,
+      &-trans-leave-to {
+        transform: scale(0.4);
+        opacity: 0;
+      }
+    }
+  }
+
+  &__trans-enter-active {
+    transition: all 0.2s ease-out;
+  }
+
+  &__trans-leave-active {
+    transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+
+  &__trans-enter-from,
+  &__trans-leave-to {
+    opacity: 0;
+  }
+
+  &.sw-dialog__fullscreen {
+    .sw-dialog__wrapper {
+      overflow: hidden;
+
+      .sw-dialog__container {
+        height: 100vh;
+        width: 100vw;
+        border-radius: 0;
+        overflow: auto;
+      }
+    }
+  }
+}

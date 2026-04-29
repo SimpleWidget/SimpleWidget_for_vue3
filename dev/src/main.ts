@@ -25,6 +25,10 @@ import { SBox } from "../../packages/base/box/index";
 import { SDivider } from "../../packages/base/divider/index";
 import { SSpace } from "../../packages/base/space/index";
 import { SLink } from "../../packages/base/link/index";
+import { SAlert } from "../../packages/base/alert/index";
+import { SDialog } from "../../packages/base/dialog/index";
+import { SMessage, showMessage } from "../../packages/base/message/index";
+import { SNotification, showNotification } from "../../packages/base/notification/index";
 
 const app = createApp(App);
 
@@ -51,5 +55,11 @@ app.use(SBox as any);
 app.use(SDivider as any);
 app.use(SSpace as any);
 app.use(SLink as any);
+app.use(SAlert as any);
+app.use(SDialog as any);
+app.use(SMessage as any);
+app.use(SNotification as any);
+(app as any).showMessage = showMessage;
+(app as any).showNotification = showNotification;
 
 app.mount("#dev");

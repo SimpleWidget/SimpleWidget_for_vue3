@@ -1,0 +1,124 @@
+@import './common/base.scss';
+
+.sw-message {
+  position: fixed;
+  padding: 10px 18px;
+  font-size: 14px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  max-width: 500px;
+  transition: all 0.4s ease-out;
+  z-index: var(--message-z-index, 4000);
+  background: var(--message-background, #fff);
+  color: var(--message-color);
+
+  &.sw-message__round {
+    border-radius: 20px;
+  }
+
+  &.sw-message__top {
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+  }
+
+  &.sw-message__top-left {
+    left: 20px;
+    top: 20px;
+  }
+
+  &.sw-message__top-right {
+    right: 20px;
+    top: 20px;
+  }
+
+  &.sw-message__bottom {
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+  }
+
+  &.sw-message__bottom-left {
+    left: 20px;
+    bottom: 20px;
+  }
+
+  &.sw-message__bottom-right {
+    right: 20px;
+    bottom: 20px;
+  }
+
+  &__close {
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__before_icon {
+    margin-right: 10px;
+  }
+
+  &__default {
+    --message-background: #f0f0f0;
+    --message-color: #333;
+  }
+
+  &__primary {
+    --message-background: #2d5af1;
+    --message-color: #fff;
+  }
+
+  &__success {
+    --message-background: #52b35e;
+    --message-color: #fff;
+  }
+
+  &__danger {
+    --message-background: #ff0200;
+    --message-color: #fff;
+  }
+
+  &__warning {
+    --message-background: #fcc202;
+    --message-color: #333;
+  }
+
+  &-fade-top-enter-active,
+  &-fade-bottom-enter-active {
+    transition: all 0.15s ease-out;
+  }
+
+  &-fade-top-leave-active,
+  &-fade-bottom-leave-active {
+    transition: all 0.15s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+
+  &-fade-top-enter-from,
+  &-fade-top-leave-to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  &__top.sw-message-fade-top-enter-from,
+  &__top.sw-message-fade-top-leave-to {
+    opacity: 0;
+    transform: translate(-50%, -100%);
+  }
+
+  &-fade-bottom-enter-from,
+  &-fade-bottom-leave-to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  &__bottom.sw-message-fade-bottom-enter-from,
+  &__bottom.sw-message-fade-bottom-leave-to {
+    opacity: 0;
+    transform: translate(-50%, 100%);
+  }
+}

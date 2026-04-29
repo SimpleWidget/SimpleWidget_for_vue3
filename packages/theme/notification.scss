@@ -1,0 +1,126 @@
+.sw-notification {
+  position: fixed;
+  padding: 13px 20px;
+  font-size: 14px;
+  min-width: 300px;
+  max-width: 500px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease-out;
+  z-index: var(--notification-z-index, 4000);
+  background: var(--notification-background, #fff);
+  color: var(--notification-color);
+
+  &.sw-notification__round {
+    border-radius: 10px;
+  }
+
+  &.sw-notification__top {
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+  }
+
+  &.sw-notification__top-left {
+    left: 20px;
+    top: 20px;
+  }
+
+  &.sw-notification__top-right {
+    right: 20px;
+    top: 20px;
+  }
+
+  &.sw-notification__bottom {
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+  }
+
+  &.sw-notification__bottom-left {
+    left: 20px;
+    bottom: 20px;
+  }
+
+  &.sw-notification__bottom-right {
+    right: 20px;
+    bottom: 20px;
+  }
+
+  &__icon {
+    margin-right: 10px;
+  }
+
+  &__content {
+    padding-right: 21px;
+    flex: 1;
+
+    .sw-notification__title {
+      margin: 0;
+      margin-bottom: 10px;
+      color: #19191a;
+      font-weight: 500;
+      font-size: 18px;
+    }
+
+    .sw-notification__message {
+      font-size: 15px;
+      color: #4a4a4d;
+      font-weight: 500;
+    }
+  }
+
+  &__close {
+    cursor: pointer;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  }
+
+  &__default {
+    --notification-background: #f0f0f0;
+    --notification-color: #333;
+  }
+
+  &__primary {
+    --notification-background: #2d5af1;
+    --notification-color: #fff;
+  }
+
+  &__success {
+    --notification-background: #52b35e;
+    --notification-color: #fff;
+  }
+
+  &__danger {
+    --notification-background: #ff0200;
+    --notification-color: #fff;
+  }
+
+  &__warning {
+    --notification-background: #fcc202;
+    --notification-color: #333;
+  }
+
+  &-fade-right-enter-active,
+  &-fade-right-leave-active,
+  &-fade-left-enter-active,
+  &-fade-left-leave-active {
+    transition: all 0.3s ease-out;
+  }
+
+  &-fade-right-enter-from,
+  &-fade-right-leave-to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  &-fade-left-enter-from,
+  &-fade-left-leave-to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
