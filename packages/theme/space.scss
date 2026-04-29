@@ -1,0 +1,42 @@
+@import './common/base.scss';
+
+$spaceSize: (
+  'small': 8px,
+  'middle': 12px,
+  'large': 16px
+);
+
+.sw-space {
+  display: inline-flex;
+  flex-wrap: wrap;
+
+  &--horizontal {
+    flex-direction: row;
+    > .sw-space__item {
+      margin-right: 12px;
+    }
+  }
+
+  &--vertical {
+    flex-direction: column;
+    > .sw-space__item {
+      margin-bottom: 12px;
+    }
+  }
+
+  @each $name, $size in $spaceSize {
+    &--#{$name} > .sw-space__item {
+      margin-right: $size;
+      margin-bottom: $size;
+    }
+  }
+
+  &--vertical {
+    @each $name, $size in $spaceSize {
+      &.sw-space--#{$name} > .sw-space__item {
+        margin-right: 0;
+        margin-bottom: $size;
+      }
+    }
+  }
+}

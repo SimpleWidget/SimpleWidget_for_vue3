@@ -1,0 +1,13 @@
+@import './common/base.scss';
+
+.sw-box {
+  background: #fff;
+
+  &--border {
+    border: 1px solid $default;
+  }
+
+  &--radius {
+    border-radius: $basicRadiusSize;
+  }
+}

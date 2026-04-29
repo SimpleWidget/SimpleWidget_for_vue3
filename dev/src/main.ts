@@ -20,6 +20,11 @@ import { SSelect } from "../../packages/base/select/index";
 import { SOption } from "../../packages/base/option/index";
 import { SInputNumber } from "../../packages/base/input-number/index";
 import { SSlider } from "../../packages/base/slider/index";
+import { SLayout } from "../../packages/base/layout/index";
+import { SBox } from "../../packages/base/box/index";
+import { SDivider } from "../../packages/base/divider/index";
+import { SSpace } from "../../packages/base/space/index";
+import { SLink } from "../../packages/base/link/index";
 
 const app = createApp(App);
 
@@ -41,5 +46,10 @@ app.use(SSelect as any);
 app.use(SOption as any);
 app.use(SInputNumber as any);
 app.use(SSlider as any);
+app.use(SLayout as any);
+app.use(SBox as any);
+app.use(SDivider as any);
+app.use(SSpace as any);
+app.use(SLink as any);
 
 app.mount("#dev");
