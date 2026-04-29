@@ -37,7 +37,8 @@ import { SAvatar } from "../../packages/base/avatar/index";
 import { SProgress } from "../../packages/base/progress/index";
 import { SEmpty } from "../../packages/base/empty/index";
 import { SPagination } from "../../packages/base/pagination/index";
-import { STabs, STabsItem } from "../../packages/base/tabs/index";
+import { STabs } from "../../packages/base/tabs/index";
+import { STabsItem } from "../../packages/base/tabs-item/index";
 
 const app = createApp(App);
 
