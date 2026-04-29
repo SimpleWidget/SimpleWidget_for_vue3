@@ -1,0 +1,119 @@
+@import './common/base.scss';
+
+.sw-tooltip {
+  position: relative;
+  display: inline-flex;
+
+  &__content {
+    position: absolute;
+    padding: 6px 10px;
+    background: #333;
+    color: #fff;
+    font-size: 12px;
+    border-radius: $basicRadiusSize;
+    white-space: nowrap;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+
+    // Arrow
+    &::after {
+      content: '';
+      position: absolute;
+      border: 5px solid transparent;
+    }
+  }
+
+  // Position: bottom (default)
+  &--bottom {
+    .sw-tooltip__content {
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 8px;
+
+      &::after {
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-bottom-color: #333;
+      }
+    }
+  }
+
+  // Position: top
+  &--top .sw-tooltip__content {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+
+    &::after {
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-top-color: #333;
+    }
+  }
+
+  // Position: left
+  &--left .sw-tooltip__content {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 8px;
+
+    &::after {
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      border-left-color: #333;
+    }
+  }
+
+  // Position: right
+  &--right .sw-tooltip__content {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 8px;
+
+    &::after {
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      border-right-color: #333;
+    }
+  }
+
+  // No arrow
+  &--no-arrow .sw-tooltip__content::after {
+    display: none;
+  }
+
+  // Bright theme
+  &--bright .sw-tooltip__content {
+    background: #fff;
+    color: #333;
+    border: 1px solid $default;
+
+    &::after {
+      border-bottom-color: #fff;
+    }
+  }
+
+  // Hover state
+  &:hover .sw-tooltip__content {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  // Disabled
+  &--disabled {
+    cursor: not-allowed;
+    .sw-tooltip__content {
+      display: none;
+    }
+  }
+}
