@@ -47,6 +47,7 @@ import { SSteps } from "../../packages/base/steps/index";
 import { SForm } from "../../packages/base/form/index";
 import { SFormItem } from "../../packages/base/form-item/index";
 import { SStepsItem } from "../../packages/base/steps-item/index";
+import { SDatePicker } from "../../packages/base/date-picker/index";
 
 const app = createApp(App);
 
@@ -95,6 +96,7 @@ app.use(SSteps as any);
 app.use(SStepsItem as any);
 app.use(SForm as any);
 app.use(SFormItem as any);
+app.use(SDatePicker as any);
 (app as any).showMessage = showMessage;
 (app as any).showNotification = showNotification;
 (app as any).showConfirmBox = showConfirmBox;

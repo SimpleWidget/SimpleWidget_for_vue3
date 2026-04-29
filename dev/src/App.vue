@@ -149,6 +149,11 @@
       <SStepsItem title="步骤 3" description="支付订单" status="wait" />
     </SSteps>
 
+    <h3>DatePicker</h3>
+    <SSpace>
+      <SDatePicker />
+    </SSpace>
+
     <h3>Form</h3>
     <SForm>
       <SFormItem label="用户名">
