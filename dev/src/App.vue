@@ -94,6 +94,14 @@
       <SAvatar src="https://invalid.test" alt="失败" />
     </SSpace>
 
+    <h3>Progress</h3>
+    <SSpace direction="vertical" style="width: 300px">
+      <SProgress :percentage="30" />
+      <SProgress :percentage="60" type="success" />
+      <SProgress :percentage="80" type="danger" :height="20" />
+      <SProgress :percentage="50" stripe :height="10" />
+    </SSpace>
+
     <h3>Form Components</h3>
     <SSpace direction="vertical">
       <SInput v-model="inputValue" placeholder="输入框" />
