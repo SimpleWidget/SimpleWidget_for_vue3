@@ -63,6 +63,12 @@ const selectDay = (day: number) => {
   isShow.value = false;
 };
 
+const handleDayClick = (day: number | null) => {
+  if (day !== null) {
+    selectDay(day);
+  }
+};
+
 const toggleCalendar = () => {
   isShow.value = !isShow.value;
 };
@@ -89,7 +95,7 @@ const toggleCalendar = () => {
           <div
             v-if="day !== null"
             class="sw-date-picker__day"
-            @click="selectDay(day as number)"
+            @click="handleDayClick(day)"
           >
             {{ day }}
           </div>
