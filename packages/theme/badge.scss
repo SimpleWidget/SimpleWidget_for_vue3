@@ -29,8 +29,11 @@
     color: #fff;
     font-size: 11px;
     padding: 0 5px;
+    box-sizing: border-box;
+    font-weight: 500;
   }
 
+  // 类型
   @each $item in $allTypeColorList {
     $name: map-get($item, name);
     &.sw-badge-#{$name} {
@@ -40,4 +43,23 @@
       }
     }
   }
+
+  // dot 模式隐藏 content
+  &.sw-badge-dot {
+    .sw-badge__content {
+      display: none;
+    }
+  }
+}
+
+// 过渡动画
+.sw-badge-enter-active,
+.sw-badge-leave-active {
+  transition: all 0.2s ease;
+}
+
+.sw-badge-enter-from,
+.sw-badge-leave-to {
+  opacity: 0;
+  transform: scale(0.5);
 }

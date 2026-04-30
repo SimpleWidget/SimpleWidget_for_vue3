@@ -3,59 +3,133 @@
 $inputSize: (
   (name: 'large',
     height: $large,
-    fontSize: 15px,
-    padding: 10px 15px),
-  (name: 'medium',
+    fontSize: 15px),
+  (name: 'middle',
     height: $middle,
-    fontSize: 14px,
-    padding: 8px 12px),
+    fontSize: 14px),
   (name: 'small',
     height: $small,
-    fontSize: 13px,
-    padding: 6px 10px),
+    fontSize: 13px),
   (name: 'mini',
     height: $mini,
-    fontSize: 12px,
-    padding: 4px 8px)
+    fontSize: 12px)
 );
 
 .sw-input {
-  box-sizing: border-box;
-  border: 1px solid $default;
-  border-radius: $basicRadiusSize;
-  outline: none;
-  font-size: 14px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  vertical-align: middle;
   height: $middle;
-  padding: 8px 12px;
-  transition: border-color 0.3s, box-shadow 0.3s;
-  background: #fff;
-  color: #333;
 
-  &::placeholder {
-    color: #999;
+  // 主容器
+  &__wrapper {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    padding: 3px 10px;
+    box-sizing: border-box;
+    height: 100%;
+    transition: 0.3s;
+    border: 1px solid #dcdfe6;
+    background: #fff;
+    border-radius: $basicRadiusSize;
+
+    &:focus-within {
+      border-color: $primary;
+      box-shadow: 0 0 0 2px rgba($primary, 0.1);
+    }
   }
 
-  &:focus {
-    border-color: $primary;
-    box-shadow: 0 0 0 2px rgba($primary, 0.1);
+  &__inner {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 14px;
+    color: $fontDefault;
+    width: 100%;
+    height: 100%;
+    margin: 0 8px;
+
+    &::placeholder {
+      color: #b1b1b1;
+    }
+
+    // 禁用原生数字输入框箭头
+    &[type="number"]::-webkit-outer-spin-button,
+    &[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
   }
 
-  &:hover:not(:focus):not(:disabled) {
-    border-color: darken($default, 10%);
+  &__icon {
+    color: #909399;
+    font-size: 14px;
   }
 
-  &:disabled {
-    background: #f5f5f5;
+  &__clear-btn,
+  &__password-btn {
+    cursor: pointer;
+    color: #c0c4cc;
+    font-size: 14px;
+    padding: 4px;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #606266;
+    }
+  }
+
+  // 搜索区域
+  &__search {
+    margin-left: -1px;
+
+    .sw-input__wrapper {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &__search-btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  // 禁用状态
+  &-disabled {
     cursor: not-allowed;
-    opacity: 0.6;
+
+    .sw-input__wrapper {
+      background: #f5f7fa;
+    }
+
+    .sw-input__inner {
+      cursor: not-allowed;
+      color: #c0c4cc;
+    }
+
+    .sw-input__clear-btn,
+    .sw-input__password-btn {
+      cursor: not-allowed;
+      &:hover {
+        color: #c0c4cc;
+      }
+    }
   }
 
+  // 不同尺寸
   @each $item in $inputSize {
     $name: map-get($item, name);
     &.sw-input-#{$name} {
       height: map-get($item, height);
       font-size: map-get($item, fontSize);
-      padding: map-get($item, padding);
+
+      .sw-input__wrapper {
+        height: 100%;
+      }
     }
   }
 }

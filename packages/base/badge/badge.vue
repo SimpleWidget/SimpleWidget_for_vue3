@@ -1,32 +1,57 @@
 <template>
-  <span class="sw-badge" :class="classes">
+  <div class="sw-badge" :class="classList">
     <slot />
-    <span v-if="dot" class="sw-badge__dot" />
-    <span v-else-if="content !== undefined" class="sw-badge__content">
-      {{ content }}
-    </span>
-  </span>
+    <transition name="sw-badge">
+      <sup v-if="isShow" class="sw-badge__content" :class="{ 'sw-badge__dot': dot }">
+        {{ displayValue }}
+      </sup>
+    </transition>
+  </div>
 </template>
 
 <script lang="ts" setup>
 import { computed } from 'vue';
 
-type BadgeType = 'primary' | 'success' | 'warning' | 'danger' | 'info';
+type BadgeType = 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'default';
 
 interface BadgeProps {
-  type?: BadgeType;
-  content?: string | number;
+  value?: string | number;
+  max?: number;
   dot?: boolean;
+  show?: boolean;
+  type?: BadgeType;
+  background?: string;
+  color?: string;
 }
 
 const props = withDefaults(defineProps<BadgeProps>(), {
-  type: 'primary',
+  value: '',
+  max: 99,
   dot: false,
+  show: true,
+  type: 'danger',
 });
 
-const classes = computed(() => [
-  props.type ? `sw-badge-${props.type}` : '',
+const classList = computed(() => [
+  `sw-badge-${props.type}`,
+  { 'sw-badge-dot': props.dot },
 ]);
+
+const displayValue = computed(() => {
+  if (props.dot) return '';
+  if (typeof props.value === 'number' && props.max !== undefined) {
+    return props.value > props.max ? `${props.max}+` : props.value;
+  }
+  return props.value;
+});
+
+const isShow = computed(() => {
+  if (!props.show) return false;
+  if (typeof props.value === 'number') {
+    return props.value > 0;
+  }
+  return props.value !== '' && props.value !== undefined;
+});
 </script>
 
 <style lang="scss" scoped>
