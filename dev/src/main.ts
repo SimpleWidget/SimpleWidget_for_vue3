@@ -53,6 +53,7 @@ import { SCountDown } from "../../packages/base/count-down/index";
 import { SBackTop } from "../../packages/base/back-top/index";
 import { SWatermark } from "../../packages/base/watermark/index";
 import { SInfiniteScrolling } from "../../packages/base/infinite-scrolling/index";
+import { SImagePreview } from "../../packages/base/image-preview/index";
 
 const app = createApp(App);
 
@@ -107,6 +108,7 @@ app.use(SCountDown as any);
 app.use(SBackTop as any);
 app.use(SWatermark as any);
 app.use(SInfiniteScrolling as any);
+app.use(SImagePreview as any);
 (app as any).showMessage = showMessage;
 (app as any).showNotification = showNotification;
 (app as any).showConfirmBox = showConfirmBox;
