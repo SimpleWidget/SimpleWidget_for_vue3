@@ -164,6 +164,11 @@
       <SCountDown :time="10000" format="HH:mm:ss" />
     </SSpace>
 
+    <h3>Watermark</h3>
+    <SWatermark text="SimpleWidget">
+      <div style="padding: 20px; background: #f5f5f5;">水印内容区域</div>
+    </SWatermark>
+
     <h3>Form</h3>
     <SForm>
       <SFormItem label="用户名">

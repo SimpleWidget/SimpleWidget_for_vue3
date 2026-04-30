@@ -51,6 +51,7 @@ import { SDatePicker } from "../../packages/base/date-picker/index";
 import { SUpload } from "../../packages/base/upload/index";
 import { SCountDown } from "../../packages/base/count-down/index";
 import { SBackTop } from "../../packages/base/back-top/index";
+import { SWatermark } from "../../packages/base/watermark/index";
 
 const app = createApp(App);
 
@@ -103,6 +104,7 @@ app.use(SDatePicker as any);
 app.use(SUpload as any);
 app.use(SCountDown as any);
 app.use(SBackTop as any);
+app.use(SWatermark as any);
 (app as any).showMessage = showMessage;
 (app as any).showNotification = showNotification;
 (app as any).showConfirmBox = showConfirmBox;
