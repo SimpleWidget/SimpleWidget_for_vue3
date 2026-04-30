@@ -64,8 +64,46 @@
       <SButton @click="showConfirmBox({ title: '确认删除', content: '确定要删除这条记录吗？', confirmText: '删除', cancelText: '取消' })">删除确认</SButton>
     </SSpace>
 
+    <h3>Badge</h3>
+    <SSpace>
+      <SBadge value="5" />
+      <SBadge value="100" max="99" />
+      <SBadge value="新" type="success" />
+      <SBadge value="!" dot type="warning" />
+    </SSpace>
+
+    <h3>Tag</h3>
+    <SSpace>
+      <STag>标签一</STag>
+      <STag type="success">成功标签</STag>
+      <STag type="danger">危险标签</STag>
+      <STag type="warning">警告标签</STag>
+      <STag closable>可关闭标签</STag>
+    </SSpace>
+
     <h3>Table</h3>
-    <STable :data="tableData" :columns="tableColumns" border zebra />
+    <STable :data="tableData" :columns="tableColumns" border stripe hover select :num="true" />
+
+    <h3>Select</h3>
+    <SSpace direction="vertical" style="width: 300px">
+      <SSelect v-model="selectValue" placeholder="请选择">
+        <SOption value="1" label="选项一" />
+        <SOption value="2" label="选项二" />
+        <SOption value="3" label="选项三" />
+        <SOption value="4" label="选项四" disabled />
+      </SSelect>
+      <SSelect v-model="selectValue2" placeholder="可搜索" filterable>
+        <SOption value="1" label="北京" />
+        <SOption value="2" label="上海" />
+        <SOption value="3" label="广州" />
+        <SOption value="4" label="深圳" />
+      </SSelect>
+      <SSelect v-model="selectValue3" placeholder="可清除" clearable>
+        <SOption value="1" label="苹果" />
+        <SOption value="2" label="香蕉" />
+        <SOption value="3" label="橘子" />
+      </SSelect>
+    </SSpace>
 
     <h3>Card</h3>
     <SSpace>
@@ -201,6 +239,9 @@ const sliderValue = ref(50);
 const checked = ref(false);
 const switchValue = ref(false);
 const dialogVisible = ref(false);
+const selectValue = ref('');
+const selectValue2 = ref('');
+const selectValue3 = ref('');
 
 const showMessage = (options: any) => {
   (window as any).showMessage(options);
