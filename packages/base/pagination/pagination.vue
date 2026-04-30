@@ -54,6 +54,11 @@ const handleNext = () => {
     handleClick(currentPage.value + 1);
   }
 };
+
+const handleJumpEnter = (e: KeyboardEvent) => {
+  const target = e.target as HTMLInputElement;
+  handleClick(parseInt(target.value));
+};
 </script>
 
 <template>
@@ -90,7 +95,7 @@ const handleNext = () => {
       type="number"
       class="sw-pagination__jump"
       :placeholder="'跳转'"
-      @keyup.enter="(e) => handleClick(parseInt((e.target as HTMLInputElement).value))"
+      @keyup.enter="handleJumpEnter"
     />
   </div>
 </template>
