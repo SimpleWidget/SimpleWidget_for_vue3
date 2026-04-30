@@ -4,20 +4,26 @@
   padding: 8px 12px;
   font-size: 14px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s;
   color: $fontDefault;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &:hover:not(&--disabled):not(&--active) {
-    background: $lightPrimary;
+    background: #f5f7fa;
   }
 
   &--active {
     color: $primary;
-    background: $lightPrimary;
+    background: rgba($primary, 0.1);
+    font-weight: 500;
   }
 
   &--disabled {
-    color: #999;
+    color: #c0c4cc;
     cursor: not-allowed;
+    background: none;
   }
 }

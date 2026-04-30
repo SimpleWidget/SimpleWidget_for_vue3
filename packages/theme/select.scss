@@ -1,39 +1,95 @@
 @import './common/base.scss';
 
+$selectSize: (
+  (name: 'large',
+    height: $large,
+    fontSize: 15px),
+  (name: 'middle',
+    height: $middle,
+    fontSize: 14px),
+  (name: 'small',
+    height: $small,
+    fontSize: 13px),
+  (name: 'mini',
+    height: $mini,
+    fontSize: 12px)
+);
+
 .sw-select {
   position: relative;
   display: inline-block;
   min-width: 120px;
+  font-size: 14px;
 
-  &__trigger {
+  &__wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 12px;
-    border: 1px solid $default;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 0 10px;
+    border: 1px solid #dcdfe6;
     border-radius: $basicRadiusSize;
     background: #fff;
     cursor: pointer;
-    font-size: 14px;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s;
 
     &:hover {
-      border-color: darken($default, 10%);
+      border-color: #c0c4cc;
     }
   }
 
+  &:focus-within &__wrapper,
+  &--open &__wrapper {
+    border-color: $primary;
+    box-shadow: 0 0 0 2px rgba($primary, 0.1);
+  }
+
   &__value {
-    color: $fontDefault;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  &__placeholder {
+    color: #b1b1b1;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__suffix {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
   }
 
   &__arrow {
-    margin-left: 8px;
-    font-size: 10px;
-    color: #999;
+    color: #c0c4cc;
+    font-size: 12px;
     transition: transform 0.3s;
 
     &--open {
       transform: rotate(180deg);
+    }
+  }
+
+  &__clear {
+    color: #c0c4cc;
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #909399;
     }
   }
 
@@ -43,20 +99,54 @@
     left: 0;
     right: 0;
     margin-top: 4px;
-    border: 1px solid $default;
+    border: 1px solid #dcdfe6;
     border-radius: $basicRadiusSize;
     background: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
     max-height: 200px;
     overflow-y: auto;
+    box-sizing: border-box;
   }
 
   &--disabled {
-    .sw-select__trigger {
-      background: #f5f5f5;
+    cursor: not-allowed;
+
+    .sw-select__wrapper {
+      background: #f5f7fa;
       cursor: not-allowed;
-      opacity: 0.6;
+      color: #c0c4cc;
+    }
+
+    .sw-select__arrow {
+      cursor: not-allowed;
     }
   }
+
+  // 不同尺寸
+  @each $item in $selectSize {
+    $name: map-get($item, name);
+    &.sw-select--#{$name} {
+      height: map-get($item, height);
+
+      .sw-select__wrapper {
+        height: 100%;
+      }
+
+      font-size: map-get($item, fontSize);
+    }
+  }
+}
+
+// 过渡动画
+.sw-select-enter-active,
+.sw-select-leave-active {
+  transition: all 0.3s ease;
+  transform-origin: top;
+}
+
+.sw-select-enter-from,
+.sw-select-leave-to {
+  opacity: 0;
+  transform: scaleY(0.8);
 }
