@@ -1,3 +1,4 @@
+import { createVNode, createApp, h, ref } from 'vue';
 import SConfirmBox from './confirm-box.vue';
 
 SConfirmBox.install = function (app) {
@@ -19,14 +20,13 @@ export function showConfirmBox(options: {
   container.style.cssText = 'position: fixed; inset: 0; z-index: 9999;';
   document.body.appendChild(container);
 
-  let confirmBoxEl: HTMLElement | null = null;
+  const show = ref(true);
 
   const handleClose = () => {
-    if (confirmBoxEl) {
-      confirmBoxEl.remove();
-      confirmBoxEl = null;
-    }
-    container.remove();
+    show.value = false;
+    setTimeout(() => {
+      container.remove();
+    }, 300);
   };
 
   const handleConfirm = async () => {
@@ -43,58 +43,23 @@ export function showConfirmBox(options: {
     handleClose();
   };
 
-  confirmBoxEl = document.createElement('div');
-  confirmBoxEl.innerHTML = `
-    <div style="
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    ">
-      <div style="
-        width: 300px;
-        padding: 20px 30px;
-        background: #fff;
-        border-radius: 2px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.33);
-      ">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-          <div style="font-size: 16px; color: #333; font-weight: bold;">${options.title || '确认'}</div>
-          <span onclick="this.closest('.sw-confirm-box').remove()" style="cursor: pointer; opacity: 0.7;">✕</span>
-        </div>
-        <div style="margin-top: 24px; margin-bottom: 18px; font-size: 15px; color: #333;">${options.content}</div>
-        <div style="display: flex; justify-content: flex-end; gap: 10px;">
-          <button id="cancelBtn" style="
-            padding: 8px 16px;
-            border: 1px solid #dcdfe6;
-            background: #fff;
-            border-radius: 4px;
-            cursor: pointer;
-          ">${options.cancelText || '取消'}</button>
-          <button id="confirmBtn" style="
-            padding: 8px 16px;
-            border: none;
-            background: #2d5af1;
-            color: #fff;
-            border-radius: 4px;
-            cursor: pointer;
-          ">${options.confirmText || '确定'}</button>
-        </div>
-      </div>
-    </div>
-  `;
+  const vnode = createVNode(SConfirmBox, {
+    show: show.value,
+    title: options.title,
+    content: options.content,
+    confirmText: options.confirmText,
+    cancelText: options.cancelText,
+    onConfirm: handleConfirm,
+    onCancel: handleCancel,
+    onClose: handleClose,
+    'onUpdate:show': (val: boolean) => {
+      show.value = val;
+      if (!val) handleClose();
+    },
+  });
 
-  container.appendChild(confirmBoxEl);
-
-  setTimeout(() => {
-    const cancelBtn = confirmBoxEl!.querySelector('#cancelBtn');
-    const confirmBtn = confirmBoxEl!.querySelector('#confirmBtn');
-    cancelBtn?.addEventListener('click', handleCancel);
-    confirmBtn?.addEventListener('click', handleConfirm);
-  }, 0);
+  const app = createApp(vnode);
+  app.mount(container);
 
   return container;
 }

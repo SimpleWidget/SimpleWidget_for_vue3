@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, provide, reactive, watch, computed, onMounted, onBeforeUnmount, useSlots } from 'vue';
+import { ref, provide, reactive, watch, computed, onMounted, onBeforeUnmount } from 'vue';
 
 interface SelectProps {
   modelValue?: string | number;

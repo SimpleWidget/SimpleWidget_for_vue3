@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { inject, computed } from 'vue';
+import { inject, computed, onMounted, ref } from 'vue';
 
 interface StepsItemProps {
   title: string;
@@ -11,11 +11,17 @@ const props = withDefaults(defineProps<StepsItemProps>(), {
   status: 'wait',
 });
 
-const current = inject<{ value: number }>('current', { value: 1 });
+const steps = inject<{
+  current: { value: number };
+  registerItem: (id: number) => number;
+  getItemIndex: (id: number) => number;
+}>('steps', { current: { value: 1 }, registerItem: () => 0, getItemIndex: () => 0 });
 
-const index = computed(() => {
-  // Get the index from parent's slot
-  return 0;
+const instanceId = ref(Math.random());
+const index = computed(() => steps.getItemIndex(instanceId.value));
+
+onMounted(() => {
+  steps.registerItem(instanceId.value);
 });
 
 const status = computed(() => {

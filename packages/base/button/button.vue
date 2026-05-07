@@ -12,8 +12,9 @@
     class="sw-button"
     :class="classes"
     :type="nativeType"
-    :disabled="disabled"
+    :disabled="disabled || loading"
   >
+    <span v-if="loading" class="sw-button__loading" />
     <slot />
   </button>
 </template>
@@ -34,7 +35,7 @@ interface ButtonProps {
   type?: ButtonType;
   size?: ButtonSize;
   nativeType?: ButtonNativeType;
-  // loading?: boolean;
+  loading?: boolean;
   disabled?: boolean;
 }
 // withDefaults 使用类型声明时的默认 props 值
@@ -49,6 +50,7 @@ function useClasses({ props }) {
       props.size ? `sw-button-${props.size}` : '',
       {
         'sw-button-disabled': props.disabled,
+        'sw-button-loading': props.loading,
       },
     ];
   });

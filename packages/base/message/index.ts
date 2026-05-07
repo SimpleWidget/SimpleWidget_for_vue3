@@ -1,3 +1,4 @@
+import { createVNode, createApp, ref } from 'vue';
 import SMessage from './message.vue';
 
 SMessage.install = function (app) {
@@ -23,66 +24,59 @@ export function showMessage(options: {
     document.body.appendChild(messageContainer);
   }
 
-  const typeColors: Record<string, string> = {
-    default: '#f0f0f0',
-    primary: '#2d5af1',
-    success: '#52b35e',
-    danger: '#ff0200',
-    warning: '#fcc202',
-  };
+  const container = document.createElement('div');
+  container.style.cssText = `position: fixed; z-index: 9999;`;
 
-  const textColors: Record<string, string> = {
-    default: '#333',
-    primary: '#fff',
-    success: '#fff',
-    danger: '#fff',
-    warning: '#333',
-  };
-
-  const type = options.type || 'default';
   const placement = options.placement || 'top';
-
-  let positionStyle = '';
   if (placement === 'top') {
-    positionStyle = 'top: 20px; left: 50%; transform: translateX(-50%);';
+    container.style.top = '20px';
+    container.style.left = '50%';
+    container.style.transform = 'translateX(-50%)';
   } else if (placement === 'top-left') {
-    positionStyle = 'top: 20px; left: 20px;';
+    container.style.top = '20px';
+    container.style.left = '20px';
   } else if (placement === 'top-right') {
-    positionStyle = 'top: 20px; right: 20px;';
+    container.style.top = '20px';
+    container.style.right = '20px';
   } else if (placement === 'bottom') {
-    positionStyle = 'bottom: 20px; left: 50%; transform: translateX(-50%);';
+    container.style.bottom = '20px';
+    container.style.left = '50%';
+    container.style.transform = 'translateX(-50%)';
   } else if (placement === 'bottom-left') {
-    positionStyle = 'bottom: 20px; left: 20px;';
+    container.style.bottom = '20px';
+    container.style.left = '20px';
   } else if (placement === 'bottom-right') {
-    positionStyle = 'bottom: 20px; right: 20px;';
+    container.style.bottom = '20px';
+    container.style.right = '20px';
   }
 
-  const div = document.createElement('div');
-  div.style.cssText = `position: fixed; ${positionStyle}; z-index: 9999;`;
-  messageContainer.appendChild(div);
+  messageContainer.appendChild(container);
 
-  div.innerHTML = `
-    <div style="
-      padding: 10px 18px;
-      font-size: 14px;
-      background: ${typeColors[type]};
-      color: ${textColors[type]};
-      border-radius: ${options.round ? '20px' : '4px'};
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      max-width: 500px;
-      transition: all 0.4s ease-out;
-    ">
-      <span>${options.message}</span>
-      ${options.close ? '<span onclick="this.parentElement.parentElement.remove()" style="cursor:pointer;opacity:0.7">✕</span>' : ''}
-    </div>
-  `;
+  const show = ref(true);
+
+  const handleClose = () => {
+    show.value = false;
+    setTimeout(() => {
+      container.remove();
+    }, 400);
+  };
+
+  const vnode = createVNode(SMessage, {
+    message: options.message,
+    type: options.type,
+    duration: options.duration,
+    close: options.close,
+    round: options.round,
+    placement: options.placement,
+    onClose: handleClose,
+  });
+
+  const app = createApp(vnode);
+  app.mount(container);
 
   if (options.duration && options.duration > 0) {
     setTimeout(() => {
-      div.remove();
+      handleClose();
     }, options.duration);
   }
 }
